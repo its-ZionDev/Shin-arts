@@ -1,0 +1,65 @@
+<%- include('partials/header')%>
+<!--Animated Gallery Begins-->
+<section>
+  <div class="container">
+    <div class="card-header-gallery">
+      <h1 class="card-title">Animated</h1>
+    </div>
+  </div>
+  <div class="grid-gallery" uk-lightbox="animation: fade;">
+    <div class="grid-item">
+      <a href="/assets/videos/Animated-01.mp4">
+        <video controls autoplay muted>
+          <source src="/assets/videos/Animated-01.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="/assets/videos/Animated-02.mp4">
+        <video controls autoplay muted>
+          <source src="/assets/videos/Animated-02.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="/assets/videos/Animated-03.gif">
+        <img src="/assets/videos/Animated-03.gif" alt="Shin">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="/assets/videos/Animated-04.gif">
+        <img src="/assets/videos/Animated-04.gif" alt="Dog">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="/assets/videos/Animated-05.gif">
+        <img src="/assets/videos/Animated-05.gif" alt="Shin's Birthday">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="/assets/videos/Animated-06.gif">
+        <img src="/assets/videos/Animated-06.gif" alt="Happy Shin">
+      </a>
+    </div>
+  </div>
+</section>
+<!--Animated Gallery Ends-->
+
+<div class="pagination-links">
+  <div class="previous-link-container"><i class="ri-arrow-left-line"></i><a href="/work/conceptart" class="previous-link">Concept Art</a></div>
+  <div class="next-link-container"><a href="/work/traditional" class="next-link">Traditional</a><i class="ri-arrow-right-line"></i></div>
+</div>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader">
+  <div class="line"></div>
+</div>
+
+<!--UIkit JS Files-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.19.4/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.19.4/js/uikit-icons.min.js"></script>
+
+<!--Javascript Main File-->
+<script src="/js/gallery.js"></script>
+<%- include('partials/footer')%>

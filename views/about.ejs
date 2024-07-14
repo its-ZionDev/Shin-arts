@@ -1,0 +1,277 @@
+<%- include('partials/header')%>
+<!--About Me Section Begins-->
+<section class="about">
+  <div class="grid-box about-container container">
+    <div class="about-heading">
+      <h1>Hey! I'm <span class="about-name-highlight">Shalini Thunglano</span></h1>
+      <p>I'm an <span class="about-sub-highlight">artist</span> working from <span class="about-sub-highlight">Nagaland, India.</span></p>
+    </div>
+    <div class="about-profile">
+      <div class="about-img-container">
+        <div class="about-shadow"></div>
+        <img src="/assets/images/Shin_About_Cover.jpg" alt="Shin's Profile Image" class="about-img" />
+        <div class="about-box"></div>
+      </div>
+    </div>
+    <div class="about-info">
+      <p class="about-description">
+        I am a self taught artist. I have been drawing as a hobby since childhood and when I reflect back its inspiring to know how far I have come.
+      </p>
+      <p class="about-description">
+        I desire to be a blessing with this gift of mine, I am always grateful to my dear ones who have never stopped believing in me.
+      </p>
+      <p class="about-description">
+        My ultimate goal is to inspire, encourage and change lives using this skill. I desire
+        to spread hope, comfort and love with my all. Thank you for your support and love on this
+        journey of mine! Be blessed.
+      </p>
+    </div>
+  </div>
+</section>
+<!--About Me Section Ends-->
+
+<div class="gallery-header glass-bg">
+  <h1 class="main-head">A Vision</h1>
+</div>
+
+<!--Services Section Begins-->
+<section class="services">
+  <div class="container">
+
+    <div class="about-head-container">
+      <div class="about-head">
+        <span class="about-head-01">Services</span>
+        <h2>What I <span>Offer...</span></h2>
+      </div>
+    </div>
+
+    <!--Card Section Begins-->
+    <div class="art-sm-container">
+      <!--Info Card Begins-->
+      <div class="art-sm-card art-sm-slide">
+        <div class="art-overlay"></div>
+        <div class="art-circle">
+          <img src="/assets/icons/About_Quality_Services-01.png" alt="" class="art-circle-img art-img-default">
+          <img src="/assets/icons/About_Quality_Services-01_light.png" alt="" class="art-circle-img art-img-dark">
+        </div>
+        <div class="art-sm-text">
+          <span>Print Media</span>
+          <p>Offering high-quality prints of original artworks, perfect for home decor, gifts, or collections.</p>
+        </div>
+      </div>
+      <!--Info Card Ends-->
+
+      <!--Info Card Begins-->
+      <div class="art-sm-card art-sm-slide">
+        <div class="art-overlay"></div>
+        <div class="art-circle">
+          <img src="/assets/icons/About_Quality_Services-02.png" alt="" class="art-circle-img art-img-default">
+          <img src="/assets/icons/About_Quality_Services-02_light.png" alt="" class="art-circle-img art-img-dark">
+        </div>
+        <div class="art-sm-text">
+          <span>Illustration & Design</span>
+          <p>Providing custom illustrations tailored to your needs and personalized artwork. </p>
+        </div>
+      </div>
+      <!--Info Card Ends-->
+
+      <!--Info Card Begins-->
+      <div class="art-sm-card art-sm-slide">
+        <div class="art-overlay"></div>
+        <div class="art-circle">
+          <img src="/assets/icons/About_Quality_Services-03.png" alt="" class="art-circle-img art-img-default">
+          <img src="/assets/icons/About_Quality_Services-03_light.png" alt="" class="art-circle-img art-img-dark">
+        </div>
+        <div class="art-sm-text">
+          <span>Storytelling</span>
+          <p>Providing a series of artworks that tell a story or follow a narrative. Illustrated comics with your storyline.</p>
+        </div>
+      </div>
+      <!--Info Card Ends-->
+    </div>
+    <!--Card Section Ends-->
+
+    <div class="about-head-container">
+      <div class="about-head">
+        <span class="about-head-01">Work</span>
+        <h2>My <span>Favourites</span> Pieces</h2>
+      </div>
+    </div>
+
+    <div class="swiper-gl-container">
+      <div class="swiper-gl-wrapper">
+        <div class="swiper-gl-slide">
+          <div class="container-gl-general">
+            <div class="gallery-gl-wrap wrap-effect-1">
+              <div class="gl-item"></div>
+              <div class="gl-item"></div>
+              <div class="gl-item"></div>
+              <div class="gl-item"></div>
+              <div class="gl-item"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Services Section Ends-->
+
+<!--Newsletter Section Begins-->
+<div class="gallery-header glass-bg">
+  <h1 class="main-head">Crafting Smiles</h1>
+</div>
+
+<div class="container newsletter-box">
+  <div class="newsletter-container">
+    <div class="newsletter-img-container">
+      <div class="newsletter-img-profile">
+        <img src="/assets/icons/newsletter_icon.png" class="newsletter-img" alt="Illustration">
+      </div>
+    </div>
+    <div class="newsletter-content">
+      <div class="newsletter-sub-heading">
+        <span>Subscribe Now</span>
+        <p>Subscribe to my monthly newsletter for regular updates!</p>
+        <p>Get access to my Behind The Scenes, Workflow and more</p>
+      </div>
+      <div class="newsletter-form-container">
+        <div class="newsletter-form">
+          <form action="/subscribe" method="post" class="about-form" id="subscribe-form">
+            <div class="about-input-wrap">
+              <input class="about-input" autocomplete="off" name="fName" id="fName" type="text" required>
+              <label>First Name</label>
+              <i class="about-icon fa-solid fa-address-card"></i>
+            </div>
+            <div class="about-input-wrap">
+              <input class="about-input" autocomplete="off" name="lName" id="lName" type="text" required>
+              <label>Last Name</label>
+              <i class="about-icon fa-solid fa-address-card"></i>
+            </div>
+            <div class="about-input-wrap about-w100">
+              <input class="about-input" autocomplete="off" name="email" id="email" type="email" required>
+              <label>Email</label>
+              <i class="about-icon fa-solid fa-envelope"></i>
+            </div>
+            <div class="about-btns">
+              <input type="submit" value="Subscribe" class="about-btn">
+            </div>
+          </form>
+          <div class="newsletter-sub-heading-end">
+            <p>I respect your privacy.</p>
+          </div>
+          <div class="newsletter-subscribe-message">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Newsletter Section Ends-->
+
+<section class="art-qa-container">
+  <div class="container">
+
+    <div class="about-head-container">
+      <div class="about-head">
+        <span class="about-head-01">My Perspective</span>
+        <h2>Immersing into the <span>World of</span></h2>
+      </div>
+    </div>
+
+    <!--Ques Card Section Begins-->
+    <div class="art-ques-container">
+      <div class="art-ques-card">
+        <div class="art-ques-thumbnail">
+          <img src="/assets/images/About_Questionnaire-01.jpg" alt="">
+        </div>
+        <div class="art-ques-text">
+          <h2 class="art-ques-title">Digital</h2>
+          <p class="art-ques-desc">I love how digital art makes creativity so accessible.</p>
+        </div>
+      </div>
+
+      <div class="art-ques-card">
+        <div class="art-ques-thumbnail">
+          <img src="/assets/images/About_Questionnaire-02.jpg" alt="">
+        </div>
+        <div class="art-ques-text">
+          <h2 class="art-ques-title">Traditional</h2>
+          <p class="art-ques-desc">I love how traditional art feels so authentic where each pencil stroke and shading captures not just an image but a piece of our essence.</p>
+        </div>
+      </div>
+
+      <div class="art-ques-card">
+        <div class="art-ques-thumbnail">
+          <img src="/assets/images/About_Questionnaire-03.jpg" alt="">
+        </div>
+        <div class="art-ques-text">
+          <h2 class="art-ques-title">Canvas</h2>
+          <p class="art-ques-desc">I love how canvas can take us to an essence of realness and tries to uniquely blend our soul with the paints as we move the brushes.</p>
+        </div>
+      </div>
+    </div>
+    <!--Ques Card Section Ends-->
+
+    <div class="about-head-container">
+      <div class="about-head">
+        <span class="about-head-01">Updates</span>
+        <h2>Keep in <span>Touch...</span></h2>
+      </div>
+    </div>
+
+    <!--About Slider Section Begins-->
+    <div class="about-slider-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="about-slider-cn" class="owl-carousel">
+            <div class="about-slider">
+              <div class="pic">
+                <img src="/assets/images/About_Slide_Section-01.jpg" alt="">
+              </div>
+              <div class="about-slider-content">
+                <h3 class="title">Drop me a message</h3>
+                <span class="post">Find me on other networks</span>
+                <p class="description">
+                  Feel free to drop me a message anytime! I'd love to hear from you. Also, don't forget to follow me on my other social media platforms to stay updated with the latest artworks and creative projects.
+                </p>
+                <a href="/contact"><button class="about-slide-btn" type="button"><span>Get in Touch</span></button></a>
+              </div>
+            </div>
+            <div class="about-slider">
+              <div class="pic">
+                <img src="/assets/images/About_Slide_Section-02.jpeg" alt="">
+              </div>
+              <div class="about-slider-content">
+                <p class="title">Inquiries about Projects?
+                <p>
+                  <span class="post">View the pricing details</span>
+                <p class="description">
+                  Curious about starting a new project? Let’s talk! Whether you need custom illustrations, high-quality prints, or professional art consultation, I’m here to guide you. Share your ideas and project details, and we’ll explore how to bring your vision to life. Your project deserves the best, and I’m excited to collaborate with you.
+                </p>
+                <a href="/work"><button class="about-slide-btn" type="button"><span>Get a Quote</span></button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--About Slider Section Ends-->
+  </div>
+</section>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader">
+  <div class="line"></div>
+</div>
+
+<!--Jquery and Owl Caraousel-->
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+
+<!--Javascript Main File-->
+<script src="/js/about.js"></script>
+
+<%- include('partials/footer')%>

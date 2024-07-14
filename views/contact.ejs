@@ -1,0 +1,361 @@
+<%- include('partials/header')%>
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-hero-img">
+      <img
+        src="/assets/images/Contact_Cover.jpg"
+        alt="Girl watching cherry Blossoms!"
+      />
+    </div>
+    <div class="form-wrapper">
+      <div class="contact-info">
+        <h2 class="contact-title">Let's work on your Project</h2>
+        <div class="contact-content">
+          <p>Heyy!</p>
+          <p>
+            I appreciate your messages and will get back to you as soon as
+            possible.
+          </p>
+          <div class="contact-content-commission">
+            <span
+              >For commission requests, please provide detailed information to
+              help bring your vision to life. Include the following
+              specifics:</span
+            >
+            <ul class="contact-content-list">
+              <li>
+                <i class="ri-arrow-right-s-line"></i
+                ><span>Art Style:</span> Mention any preferred styles (e.g.,
+                realistic, abstract, cartoon).
+              </li>
+              <li>
+                <i class="ri-arrow-right-s-line"></i><span>Theme:</span> Specify
+                the mood, story, or concept behind the artwork.
+              </li>
+              <li>
+                <i class="ri-arrow-right-s-line"></i><span>Pose:</span> Describe
+                the posture or action of the subject.
+              </li>
+              <li>
+                <i class="ri-arrow-right-s-line"></i
+                ><span>Background:</span> Describe the setting or environment
+                you envision.
+              </li>
+            </ul>
+            <span
+              >If you have reference images, kindly attach them to your
+              request.</span
+            >
+          </div>
+          <p>
+            For any other inquiries or to discuss your project in more detail,
+            feel free to contact me here.
+          </p>
+          <div class="contact-content-signature">
+            <p>Best regards,</p>
+            <p>Shin</p>
+          </div>
+        </div>
+
+        <div class="contact-socials">
+          <span>Connect with me:</span>
+          <div class="contact-sc-container">
+            <a
+              class="contact-sc-btn contact-twitter"
+              href="https://twitter.com/thunglano"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a
+              class="contact-sc-btn contact-instagram"
+              href="https://www.instagram.com/shin.artworks_/"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a
+              class="contact-sc-btn contact-artstation"
+              href="https://www.artstation.com/shal_arts"
+            >
+              <i class="fa-brands fa-artstation"></i>
+            </a>
+            <a
+              class="contact-sc-btn contact-youtube"
+              href="https://www.youtube.com/@shalthunglano"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-body">
+        <div class="contact-heading">
+          <span>Contact Me...</span>
+        </div>
+        <form
+          action="/contact/message"
+          method="post"
+          class="contact-form"
+          id="contactForm"
+          enctype="multipart/form-data"
+        >
+          <div class="input-wrap">
+            <input
+              class="contact-input"
+              autocomplete="off"
+              name="fName"
+              id="fName"
+              type="text"
+              required
+            />
+            <label>First Name</label>
+            <i class="contact-icon fa-solid fa-address-card"></i>
+          </div>
+          <div class="input-wrap">
+            <input
+              class="contact-input"
+              autocomplete="off"
+              name="lName"
+              id="lName"
+              type="text"
+              required
+            />
+            <label>Last Name</label>
+            <i class="contact-icon fa-solid fa-address-card"></i>
+          </div>
+          <div class="input-wrap w100">
+            <input
+              class="contact-input"
+              autocomplete="off"
+              name="email"
+              id="email"
+              type="email"
+              required
+            />
+            <label>Email</label>
+            <i class="contact-icon fa-solid fa-envelope"></i>
+          </div>
+          <div class="input-wrap w100">
+            <input
+              class="contact-input"
+              autocomplete="off"
+              name="subject"
+              id="subject"
+              type="text"
+              required
+            />
+            <label>Subject</label>
+            <i class="contact-icon fa-solid fa-message"></i>
+          </div>
+          <div class="input-wrap textarea w100">
+            <textarea
+              class="contact-input"
+              autocomplete="off"
+              name="message"
+              id="message"
+              required
+            ></textarea>
+            <label>Message</label>
+            <i class="contact-icon fa-solid fa-message"></i>
+          </div>
+          <div class="contact-btns">
+            <button class="contact-btn contact-upload" id="uploadButton">
+              <span>
+                <i class="fa-solid fa-paperclip"></i> Add Attachment
+              </span>
+              <input type="file" name="attachment" id="fileInput"/>
+            </button>
+            <input type="submit" value="Send Message" class="contact-btn" />
+          </div>
+        </form>
+        <div class="form-submission" id="formSubmitMessage">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-process">
+  <div class="container">
+    <div class="contact-head-container">
+      <div class="contact-head">
+        <span class="contact-head-01">Projects</span>
+        <h2>More on <span>Commissions</span></h2>
+      </div>
+    </div>
+    <div class="contact-hero">
+      <div class="swipe-container">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide slide_1">
+              <img src="/assets/images/Contact-Slider-01.gif" alt="" />
+            </div>
+            <div class="swiper-slide slide_2">
+              <img src="/assets/images/Contact-Slider-02.jpg" alt="" />
+            </div>
+            <div class="swiper-slide slide_3">
+              <img src="/assets/images/Contact-Slider-03.gif" alt="" />
+            </div>
+            <div class="swiper-slide slide_4">
+              <img src="/assets/images/Contact-Slider-04.jpg" alt="" />
+            </div>
+            <div class="swiper-slide slide_5">
+              <img src="/assets/images/Contact-Slider-05.gif" alt="" />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-slide-content">
+      <h1>The Process</h1>
+      <p>
+        Every project is going to be different, but this is the usual structure
+        that I like to follow as best practices.
+      </p>
+
+      <div class="contact-slide-list">
+        <div class="contact-timeline">
+          <div class="contact-process-card">
+            <div class="contact-process-content">
+              <div class="contact-process-title"><h2>Research</h2></div>
+              <ul class="contact-process-text">
+                <li>
+                  <i class="ri-arrow-right-s-line"></i
+                  ><span
+                    >Understand the client’s goals and objectives of the
+                    project. Along with developing mood boards based off of the
+                    client’s vision.</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="contact-process-number"><span>01</span></div>
+          </div>
+          <div class="contact-process-card">
+            <div class="contact-process-content">
+              <div class="contact-process-title"><h2>Concept</h2></div>
+              <ul class="contact-process-text">
+                <li>
+                  <i class="ri-arrow-right-s-line"></i
+                  ><span
+                    >Use the research and develop 2-3 rough concepts. Then
+                    review with the client to finalize a direction.</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="contact-process-number"><span>02</span></div>
+          </div>
+          <div class="contact-process-card">
+            <div class="contact-process-content">
+              <div class="contact-process-title"><h2>Design</h2></div>
+              <ul class="contact-process-text">
+                <li>
+                  <i class="ri-arrow-right-s-line"></i
+                  ><span
+                    >The designing and production phase, where all the assets
+                    are developed or prototyped to be reviewed by the
+                    client.</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="contact-process-number"><span>03</span></div>
+          </div>
+          <div class="contact-process-card">
+            <div class="contact-process-content">
+              <div class="contact-process-title"><h2>Review</h2></div>
+              <ul class="contact-process-text">
+                <li>
+                  <i class="ri-arrow-right-s-line"></i
+                  ><span
+                    >Back and forth feedback with the client regarding design or
+                    copy changes before the finalization of the assets. Up to
+                    2-3 versions of proofs.</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="contact-process-number"><span>04</span></div>
+          </div>
+          <div class="contact-process-card">
+            <div class="contact-process-content">
+              <div class="contact-process-title"><h2>Finalize</h2></div>
+              <ul class="contact-process-text">
+                <li>
+                  <i class="ri-arrow-right-s-line"></i
+                  ><span
+                    >Once the project is approved, all the assets will be
+                    finalized, files packaged up and sent off to the client.
+                    Continuing support is always an option.</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="contact-process-number"><span>05</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-price-quote">
+        <p>
+          Interested in working together, or you have a unique project in mind,
+          feel free to contact me.
+        </p>
+        <div class="container-quote-btn">
+          <a href="/work"
+            ><button class="contact-quote-btn" type="button">
+              <span>Get a Quote</span>
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gallery-header glass-bg">
+  <h1 class="main-head">Social Updates</h1>
+</div>
+
+<section>
+  <div class="container">
+    <div class="social-media-container">
+      <div class="contact-head-container">
+        <div class="contact-head">
+          <span class="contact-head-01">Sneak Peek</span>
+          <h2>Behind the <span>Scenes and More...</span></h2>
+        </div>
+      </div>
+
+      <div class="insta-feed-container">
+        <div
+          class="elfsight-app-4f6842db-0e99-4aa2-942c-680ce5aba1bf"
+          data-elfsight-app-lazy
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"
+  ><i class="bi bi-arrow-up-short"></i
+></a>
+
+<div id="preloader">
+  <div class="line"></div>
+</div>
+
+<!--Instagram Embed Feed-->
+<script
+  src="https://static.elfsight.com/platform/platform.js"
+  data-use-service-core
+  defer
+></script>
+
+<!--Swiper JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+
+<!--Javascript Main File-->
+<script src="/js/contact.js"></script>
+<%- include('partials/footer')%>
