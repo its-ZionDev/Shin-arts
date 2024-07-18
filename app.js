@@ -83,7 +83,7 @@ app.get('/work/canvas', (req, res) => {
 app.get("/about", (req, res) => {
     res.render("about.ejs");
 });
-
+/*
 app.post('/subscribe', async (req, res) => {
   const { fName, lName, email } = req.body;
 
@@ -116,7 +116,7 @@ app.post('/subscribe', async (req, res) => {
       message: 'Internal server error. Please try again later.',
     });
   }
-});
+});*/
 
 app.get("/contact", (req, res) => {
     res.render('contact.ejs');
