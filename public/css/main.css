@@ -1275,6 +1275,7 @@ a {
   .card-name {
     font-size: var(--font-size-02);
     line-height: 1;
+    margin-top: .75rem;
   }
 
   .card-info {
@@ -1313,6 +1314,7 @@ a {
   gap: 10px;
   margin-top: 1rem;
   padding: 2rem;
+  overflow: hidden;
 }
 
 .price-item {
@@ -1332,8 +1334,8 @@ a {
 
 @media screen and (max-width: 520px) {
   .price-grid {
-  padding: 0;
-}
+    padding: 0;
+  }
 }
 
 /*--------------------------------------*/
@@ -2657,17 +2659,20 @@ a {
 
 .contact-content-list {
   padding: 0;
+  margin: 20px 0 12px 0;
+}
+
+.contact-content-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  color: var(--color-grey-shade-03);
 }
 
 .contact-content-list li i {
   font-size: var(--font-size-07);
   color: var(--color-secondary);
-  margin-right: 5px;
-}
-
-.contact-content-list li {
-  margin-bottom: 8px;
-  color: var(--color-grey-shade-03);
+  transform: translateY(-8px);
 }
 
 .contact-content-list span {
@@ -3399,6 +3404,10 @@ textarea.contact-input ~ .contact-icon {
     min-height: 350px;
   }
 
+  .contact-content-list li i {
+    transform: translateY(-4px);
+  }
+
   /*--------------------------------------*/
   /* Contact Swiper                      */
   /*--------------------------------------*/
@@ -3486,7 +3495,7 @@ textarea.contact-input ~ .contact-icon {
   }
 
   .contact-content {
-    padding: 1.5rem 1rem;
+    padding: 0 1rem 1.5rem 1rem;
   }
 
   .contact-heading {
