@@ -97,6 +97,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const inputs = document.querySelectorAll('.about-input');
   const form = document.getElementById('subscribe-form');
   const emailInput = document.getElementById('email');
+   const fNameInput = document.getElementById('fName');
+   const lNameInput = document.getElementById('lName');
+
+   function capitalizeInput(input) {
+     input.value = input.value
+       .split(' ')
+       .map(
+         (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+       )
+       .join(' ');
+   }
+
+   fNameInput.addEventListener('input', function () {
+     capitalizeInput(fNameInput);
+   });
+
+   lNameInput.addEventListener('input', function () {
+     capitalizeInput(lNameInput);
+   });
 
   // Function to validate email with specific allowed domains
   function validateEmail(email) {
@@ -199,10 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
       email: document.getElementById('email').value,
     };
 
-    // Log formData object to inspect
-    console.log(formData);
-
-    // Continue with fetch API or AJAX submission
+    // Send form data to the server
     fetch('/subscribe', {
       method: 'POST',
       headers: {
@@ -212,22 +228,23 @@ document.addEventListener('DOMContentLoaded', function () {
     })
       .then((response) => response.json())
       .then((data) => {
+        // Display message based on response
+        messageContainer.textContent = data.message;
+        messageContainer.classList.remove('success-message', 'error-message');
         if (data.success) {
-          messageContainer.textContent = 'Thank you for subscribing! You will hear from me soon!';
-          messageContainer.classList.remove('error-message');
           messageContainer.classList.add('success-message');
         } else {
-          messageContainer.textContent = 'You have already subscribed!';
-          messageContainer.classList.remove('success-message');
           messageContainer.classList.add('error-message');
         }
         showMessage();
-        resetForm();
+        form.reset(); // Reset the form
       })
       .catch((error) => {
         console.error('Error:', error);
         messageContainer.textContent =
-          'An error occurred. Please try again later.';
+          'An unexpected error occurred. Please try again later.';
+        messageContainer.classList.remove('success-message');
+        messageContainer.classList.add('error-message');
         showMessage();
       });
   });
@@ -238,10 +255,6 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
       messageDiv.classList.remove('show-message');
     }, 5000); // 5000ms = 5 seconds
-  }
-
-  function resetForm() {
-    form.reset();
   }
 });
 

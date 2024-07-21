@@ -18,17 +18,23 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.use(express.json());
 
-/*
-const db = new pg.Client({
-    user: process.env.PG_USER,
-    host: process.env.PG_HOST,
-    database: process.env.PG_DB,
-    password: process.env.PG_PWD,
-    port: process.env.PG_PORT,
+const client = new pg.Client({
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DB,
+  password: process.env.PG_PWD,
+  port: process.env.PG_PORT,
 });
 
-db.connect();
-*/
+// Connect to the PostgreSQL database
+client.connect((err) => {
+  if (err) {
+    console.error('Error connecting to the database', err.stack);
+  } else {
+    console.log('Connected to the database');
+  }
+});
+
 const deleteFile = (filePath) => {
   fs.unlink(filePath, (err) => {
     if (err) {
@@ -84,40 +90,48 @@ app.get('/work/canvas', (req, res) => {
 app.get("/about", (req, res) => {
     res.render("about.ejs");
 });
-/*
+
 app.post('/subscribe', async (req, res) => {
   const { fName, lName, email } = req.body;
 
-  console.log('Received data:', req.body); // Log received data
+  if (!fName || !lName || !email) {
+    return res
+      .status(400)
+      .json({ success: false, message: 'All fields are required' });
+  }
 
   try {
-    const checkUser = await db.query(
-      'SELECT * FROM testsubscribers WHERE email = $1',
-      [email],
-    );
-    if (checkUser.rows.length > 0) {
-      // User is already registered
-      res.json({
-        success: false,
-      });
-    } else {
-      // New user registered
-      await db.query(
-        'INSERT INTO testsubscribers (first_name, last_name, email) VALUES ($1, $2, $3)',
-        [fName, lName, email],
-      );
-      res.json({
-        success: true,
-      });
+    // Check if the user is already subscribed
+    const checkUserQuery = 'SELECT * FROM subscribers WHERE email = $1';
+    const checkUserResult = await client.query(checkUserQuery, [email]);
+
+    if (checkUserResult.rows.length > 0) {
+      return res
+        .status(200)
+        .json({ success: false, message: 'You have already subscribed!' });
     }
-  } catch (err) {
-    console.error('Error inserting subscriber into database:', err);
-    res.status(500).json({
-      success: false,
-      message: 'Internal server error. Please try again later.',
-    });
+
+    // Insert the new subscriber into the database
+    const insertUserQuery =
+      'INSERT INTO subscribers (first_name, last_name, email) VALUES ($1, $2, $3)';
+    await client.query(insertUserQuery, [fName, lName, email]);
+
+    return res
+      .status(200)
+      .json({
+        success: true,
+        message: 'Thank you for subscribing! You will hear from me soon!',
+      });
+  } catch (error) {
+    console.error('Error subscribing user:', error);
+    return res
+      .status(500)
+      .json({
+        success: false,
+        message: 'An error occurred. Please try again later.',
+      });
   }
-});*/
+});
 
 app.get("/contact", (req, res) => {
     res.render('contact.ejs');
