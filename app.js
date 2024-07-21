@@ -1,13 +1,14 @@
 import express from "express";
 import bodyParser from "body-parser";
-import pg from "pg";
 import env from "dotenv";
 import nodemailer from "nodemailer";
 import multer from "multer";
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import path from 'path';
+import pkg from 'pg';
 
+const { Client } = pkg;
 const app = express();
 const port = process.env.PORT || 3000;
 const upload = multer({ dest: 'uploads/' });
@@ -18,12 +19,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.use(express.json());
 
-const client = new pg.Client({
-  user: process.env.PG_USER,
-  host: process.env.PG_HOST,
-  database: process.env.PG_DB,
-  password: process.env.PG_PWD,
-  port: process.env.PG_PORT,
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 // Connect to the PostgreSQL database
@@ -102,7 +102,7 @@ app.post('/subscribe', async (req, res) => {
 
   try {
     // Check if the user is already subscribed
-    const checkUserQuery = 'SELECT * FROM subscribers WHERE email = $1';
+    const checkUserQuery = 'SELECT * FROM test WHERE email = $1';
     const checkUserResult = await client.query(checkUserQuery, [email]);
 
     if (checkUserResult.rows.length > 0) {
@@ -113,7 +113,7 @@ app.post('/subscribe', async (req, res) => {
 
     // Insert the new subscriber into the database
     const insertUserQuery =
-      'INSERT INTO subscribers (first_name, last_name, email) VALUES ($1, $2, $3)';
+      'INSERT INTO test (first_name, last_name, email) VALUES ($1, $2, $3)';
     await client.query(insertUserQuery, [fName, lName, email]);
 
     return res
