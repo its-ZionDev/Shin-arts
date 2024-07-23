@@ -75,21 +75,21 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-const inputs = document.querySelectorAll('.contact-input');
-inputs.forEach((ipt) => {
-  ipt.addEventListener('focus', () => {
-    ipt.parentNode.classList.add('focus');
-    ipt.parentNode.classList.add('not-empty');
-  });
-  ipt.addEventListener('blur', () => {
-    if (ipt.value == '') {
-      ipt.parentNode.classList.remove('not-empty');
-    }
-    ipt.parentNode.classList.remove('focus');
-  });
-});
-
 document.addEventListener('DOMContentLoaded', () => {
+  const inputs = document.querySelectorAll('.contact-input');
+  inputs.forEach((ipt) => {
+    ipt.addEventListener('focus', () => {
+      ipt.parentNode.classList.add('focus');
+      ipt.parentNode.classList.add('not-empty');
+    });
+    ipt.addEventListener('blur', () => {
+      if (ipt.value == '') {
+        ipt.parentNode.classList.remove('not-empty');
+      }
+      ipt.parentNode.classList.remove('focus');
+    });
+  });
+
   const firstNameInput = document.getElementById('fName');
   const lastNameInput = document.getElementById('lName');
 
@@ -116,9 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     input.value = value;
   }
-});
 
-document.addEventListener('DOMContentLoaded', (event) => {
   const emailInput = document.getElementById('email');
   const form = document.getElementById('contactForm');
 
@@ -186,18 +184,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
       updateUI(false);
     }
   });
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-  const fileInput = document.getElementById('fileInput');
+  // Handle file input change
   const uploadButton = document.getElementById('uploadButton');
+  const uploadButtonText = document.getElementById('uploadButtonText');
+  const fileInput = document.getElementById('fileInput');
 
   fileInput.addEventListener('change', function () {
     if (fileInput.files.length > 0) {
-      uploadButton.classList.add('uploaded');
+      uploadButtonText.innerHTML =
+        '<i class="fa-solid fa-paperclip"></i> Attachment Added';
     } else {
-      uploadButton.classList.remove('uploaded');
+      uploadButtonText.innerHTML =
+        '<i class="fa-solid fa-paperclip"></i> Add Attachment';
     }
+  });
+
+  // Handle form reset
+  form.addEventListener('reset', function () {
+    uploadButtonText.innerHTML =
+      '<i class="fa-solid fa-paperclip"></i> Add Attachment';
   });
 });
 

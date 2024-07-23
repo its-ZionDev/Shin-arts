@@ -1780,23 +1780,23 @@ a {
 }
 
 .wrap-effect-1 .gl-item:first-of-type {
-  background-image: url('/assets/images/About_Recent_Cover-01.jpg');
+  background-image: url('/assets/images/About_Fav_Cover-01.png');
 }
 
 .wrap-effect-1 .gl-item:nth-of-type(2) {
-  background-image: url('/assets/images/About_Recent_Cover-02.png');
+  background-image: url('/assets/images/About_Fav_Cover-02.png');
 }
 
 .wrap-effect-1 .gl-item:nth-of-type(3) {
-  background-image: url('/assets/images/About_Recent_Cover-03.jpg');
+  background-image: url('/assets/images/About_Fav_Cover-03.png');
 }
 
 .wrap-effect-1 .gl-item:nth-of-type(4) {
-  background-image: url('/assets/images/About_Recent_Cover-04.jpg');
+  background-image: url('/assets/images/About_Fav_Cover-04.png');
 }
 
 .wrap-effect-1 .gl-item:last-of-type {
-  background-image: url('/assets/images/About_Recent_Cover-05.jpg');
+  background-image: url('/assets/images/About_Fav_Cover-05.png');
 }
 
 /*--------------------------------------*/
@@ -2051,7 +2051,7 @@ a {
 }
 
 .art-ques-thumbnail {
-  height: 250px;
+  height: 350px;
   overflow: hidden;
   background-color: var(--color-background);
 }
@@ -2334,7 +2334,7 @@ a {
   }
 
   .art-ques-thumbnail {
-    height: 400px;
+    height: auto;
   }
 
   .art-ques-text {
@@ -2495,10 +2495,6 @@ a {
     width: 100%;
   }
 
-  .art-ques-thumbnail {
-    height: auto;
-  }
-
   /*--------------------------------------*/
   /* About Slider                         */
   /*--------------------------------------*/
@@ -2553,7 +2549,7 @@ a {
   }
 
   .newsletter-sub-heading span {
-    font-size: var(--font-size-04);
+    font-size: var(--font-size-02);
   }
 
   .newsletter-sub-heading p {
@@ -2975,14 +2971,6 @@ textarea.contact-input ~ .contact-icon {
   height: 100%;
   cursor: pointer;
   opacity: 0;
-}
-
-.contact-btn.uploaded {
-  background-color: var(--color-secondary-shade-01);
-}
-
-.contact-btn.uploaded span {
-  color: var(--color-default);
 }
 
 @keyframes slideInLeft {
