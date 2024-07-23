@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { selector: '.hero-heading-container', direction: 'left' },
     { selector: '.hero-info', direction: 'left' },
     { selector: '.hero-profile', direction: 'right' },
-    { selector: '.art-card', direction: 'bottom' },
+    { selector: '.art-card', direction: 'top' },
     { selector: '.main-head', direction: 'left' },
     { selector: '.testimonial-head', direction: 'right' },
     { selector: '.testimonial-body', direction: 'left' },
@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
         transform = 'translateX(100px)';
         break;
       case 'bottom':
-        transform = 'translateY(100px)';
+        transform = 'translateY(50px)';
         break;
       case 'top':
-        transform = 'translateY(-100px)';
+        transform = 'translateY(-50px)';
         break;
       default:
         transform = 'translateX(0)';

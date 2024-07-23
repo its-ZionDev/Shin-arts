@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
         transform = 'translateX(100px)';
         break;
       case 'bottom':
-        transform = 'translateY(100px)';
+        transform = 'translateY(50px)';
         break;
       case 'top':
-        transform = 'translateY(-100px)';
+        transform = 'translateY(-50px)';
         break;
       default:
         transform = 'translateX(0)';
