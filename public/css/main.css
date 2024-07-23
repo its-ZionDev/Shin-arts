@@ -2008,7 +2008,7 @@ a {
   position: absolute;
   bottom: -1.75rem;
   left: 0;
-  margin: 0 3rem;
+  margin-left: 3rem;
   opacity: 0;
 }
 
@@ -2242,7 +2242,7 @@ a {
     margin: 1rem 0;
   }
   .newsletter-subscribe-message {
-    margin: 0;
+    margin-left: 0;
   }
 }
 
@@ -2484,7 +2484,7 @@ a {
   }
 
   .newsletter-subscribe-message {
-    margin: 0 1rem;
+    margin-left: 1rem;
   }
 
   /*--------------------------------------*/
@@ -2566,7 +2566,7 @@ a {
   }
 
   .newsletter-subscribe-message {
-    margin: 0;
+    margin-left: 0;
   }
 
   /*--------------------------------------*/
@@ -2883,7 +2883,7 @@ a {
 textarea.contact-input {
   resize: none;
   width: 100%;
-  min-height: 340px;
+  min-height: 320px;
 }
 
 textarea.contact-input ~ label {
@@ -3013,7 +3013,7 @@ textarea.contact-input ~ .contact-icon {
 .form-submission p {
   font-size: var(--font-size-09);
   font-weight: var(--font-w-medium);
-  padding: 0 3rem;
+  padding-left: 3rem;
   opacity: 0;
   transition: opacity 0.5s ease-in;
 }
@@ -3376,7 +3376,7 @@ textarea.contact-input ~ .contact-icon {
   /* Contact Form                         */
   /*--------------------------------------*/
   textarea.contact-input {
-    min-height: 470px;
+    min-height: 420px;
   }
 }
 

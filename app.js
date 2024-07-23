@@ -1,23 +1,17 @@
-import express from "express";
-import bodyParser from "body-parser";
-import env from "dotenv";
-import nodemailer from "nodemailer";
-import multer from "multer";
-import { fileURLToPath } from 'url';
-import fs from 'fs';
-import path from 'path';
-import pkg from 'pg';
+const express = require('express');
+const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+const nodemailer = require('nodemailer');
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
+const { Client } = require('pg');
 
-const { Client } = pkg;
+dotenv.config();
+
 const app = express();
 const port = process.env.PORT || 3000;
 const upload = multer({ dest: 'uploads/' });
-
-env.config();
-
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static("public"));
-app.use(express.json());
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
@@ -35,6 +29,7 @@ client.connect((err) => {
   }
 });
 
+// Delete attachment afer sending mail
 const deleteFile = (filePath) => {
   fs.unlink(filePath, (err) => {
     if (err) {
@@ -43,6 +38,7 @@ const deleteFile = (filePath) => {
   });
 };
 
+// Setting up Transporter for sending mails
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -51,44 +47,49 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.get("/", (req, res) => {
-    res.render("index.ejs");
+// Middlewares
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.render('index.ejs');
 });
 
-app.get("/index", (req, res) => {
-    res.render("index.ejs");
+app.get('/index', (req, res) => {
+  res.render('index.ejs');
 });
 
-app.get("/work", (req, res) => {
-    res.render("work.ejs");
+app.get('/commissions', (req, res) => {
+  res.render('commissions.ejs');
 });
 
-app.get("/work/conceptart", (req,res) => {
-    res.render("conceptart.ejs");
+app.get('/work/conceptart', (req, res) => {
+  res.render('conceptart.ejs');
 });
 
-app.get("/work/digital", (req,res) => {
-    res.render("digital.ejs");
+app.get('/work/digital', (req, res) => {
+  res.render('digital.ejs');
 });
 
 app.get('/work/animated', (req, res) => {
   res.render('animated.ejs');
 });
 
-app.get("/work/sketchbook", (req,res) => {
-    res.render("sketchbook.ejs");
+app.get('/work/sketchbook', (req, res) => {
+  res.render('sketchbook.ejs');
 });
 
-app.get("/work/traditional", (req,res) => {
-    res.render("traditional.ejs");
+app.get('/work/traditional', (req, res) => {
+  res.render('traditional.ejs');
 });
 
 app.get('/work/canvas', (req, res) => {
   res.render('canvas.ejs');
 });
 
-app.get("/about", (req, res) => {
-    res.render("about.ejs");
+app.get('/about', (req, res) => {
+  res.render('about.ejs');
 });
 
 app.post('/subscribe', async (req, res) => {
@@ -116,25 +117,21 @@ app.post('/subscribe', async (req, res) => {
       'INSERT INTO test (first_name, last_name, email) VALUES ($1, $2, $3)';
     await client.query(insertUserQuery, [fName, lName, email]);
 
-    return res
-      .status(200)
-      .json({
-        success: true,
-        message: 'Thank you for subscribing! You will hear from me soon!',
-      });
+    return res.status(200).json({
+      success: true,
+      message: 'Thank you for subscribing!',
+    });
   } catch (error) {
     console.error('Error subscribing user:', error);
-    return res
-      .status(500)
-      .json({
-        success: false,
-        message: 'An error occurred. Please try again later.',
-      });
+    return res.status(500).json({
+      success: false,
+      message: 'An error occurred. Please try again later.',
+    });
   }
 });
 
-app.get("/contact", (req, res) => {
-    res.render('contact.ejs');
+app.get('/contact', (req, res) => {
+  res.render('contact.ejs');
 });
 
 app.post('/contact/message', upload.single('attachment'), (req, res) => {
@@ -176,7 +173,7 @@ app.post('/contact/message', upload.single('attachment'), (req, res) => {
     } else {
       console.log('Email sent:', info.response);
       if (attachment) {
-        const __dirname = path.dirname(fileURLToPath(import.meta.url));
+        const __dirname = path.dirname(__filename);
         deleteFile(path.join(__dirname, attachment.path));
       }
       return res.json({
@@ -187,6 +184,6 @@ app.post('/contact/message', upload.single('attachment'), (req, res) => {
   });
 });
 
-app.listen(port, ()=>{
-    console.log(`Server running on port: ${port}`);
+app.listen(port, () => {
+  console.log(`Server running on port: ${port}`);
 });
