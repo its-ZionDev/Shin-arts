@@ -3,15 +3,13 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
 const multer = require('multer');
-const fs = require('fs');
-const path = require('path');
 const { Client } = require('pg');
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ storage: multer.memoryStorage() }); // Use in-memory storage
 
 // Set view engine
 app.set('view engine', 'ejs');
@@ -38,23 +36,10 @@ client.connect((err) => {
   }
 });
 
-// Delete attachment afer sending mail
-const deleteFile = (filePath) => {
-  const normalizedPath = path.resolve(filePath);
-
-  fs.access(normalizedPath, fs.constants.F_OK, (err) => {
-    if (err) {
-      console.error('File does not exist:', filePath);
-      return;
-    }
-    fs.unlink(normalizedPath, (err) => {
-      if (err) {
-        console.error('Error deleting attachment file:', err);
-      } else {
-        console.log('File deleted successfully');
-      }
-    });
-  });
+// Delete attachment after sending mail
+const deleteFile = (fileBuffer) => {
+  // In-memory files don't need deletion
+  // Add logic if you need to handle or store the file buffer somewhere
 };
 
 // Setting up Transporter for sending mails
@@ -164,7 +149,7 @@ app.post('/contact/message', upload.single('attachment'), (req, res) => {
       ? [
           {
             filename: attachment.originalname,
-            path: attachment.path,
+            content: attachment.buffer, // Use buffer for in-memory storage
             contentType: attachment.mimetype,
           },
         ]
@@ -177,9 +162,6 @@ app.post('/contact/message', upload.single('attachment'), (req, res) => {
       return res.status(500).json({ success: false, message: error.message });
     } else {
       console.log('Email sent:', info.response);
-      if (attachment) {
-        deleteFile(path.resolve(attachment.path));
-      }
       return res.json({
         success: true,
         message: "Thanks for reaching out! I'll get back to you soon!",

@@ -1,14 +1,8 @@
 {
-  "name": "Shin-Arts",
+  "name": "shinarts",
   "version": "1.0.0",
-  "description": "A portfolio website for the artists to showcase their art. This platform is designed for artists to easily present their work, connect with potential clients, and grow their audience. Showcase your creativity with a sleek, professional website that highlights your unique style and talent.",
+  "description": "A portfolio website for the artists to showcase their art. This platform is designed for artists to easily present their work, connect with potential clients, and grow their audience.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "ZionDev",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
@@ -17,5 +11,10 @@
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.14",
     "pg": "^8.12.0"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ZionDev",
+  "license": "ISC"
 }
