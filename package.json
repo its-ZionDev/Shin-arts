@@ -1,12 +1,13 @@
 {
-  "name": "shin_arts",
+  "name": "Shin-Arts",
   "version": "1.0.0",
-  "description": "Portfolio Website",
+  "description": "A portfolio website for the artists to showcase their art. This platform is designed for artists to easily present their work, connect with potential clients, and grow their audience. Showcase your creativity with a sleek, professional website that highlights your unique style and talent.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Tanishq",
+  "keywords": [],
+  "author": "ZionDev",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -14,7 +15,7 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "multer": "^1.4.5-lts.1",
-    "nodemailer": "^6.9.13",
-    "pg": "^8.11.5"
+    "nodemailer": "^6.9.14",
+    "pg": "^8.12.0"
   }
 }
