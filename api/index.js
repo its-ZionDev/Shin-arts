@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
 const multer = require('multer');
 const { Client } = require('pg');
+const path = require('path');
 
 dotenv.config();
 
