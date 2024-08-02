@@ -75,55 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   applyAnimations();
 
-  const updateMediaSources = () => {
-    const viewportWidth = window.innerWidth;
-
-    const mediaElements = {
-      'price-sheet-9': {
-        desktopSrc: '/assets/images/commission_sheet/desktop/Price_Sheet-9.mp4',
-        mobileSrc: '/assets/images/commission_sheet/mobile/Price_Sheet-9.mp4',
-        type: 'video',
-      },
-      'price-sheet-10': {
-        desktopSrc:
-          '/assets/images/commission_sheet/desktop/Price_Sheet-10.mp4',
-        mobileSrc: '/assets/images/commission_sheet/mobile/Price_Sheet-10.mp4',
-        type: 'video',
-      },
-    };
-
-    Object.keys(mediaElements).forEach((id) => {
-      const media = mediaElements[id];
-      const element = document.getElementById(id);
-      if (!element) return;
-
-      const newSrc = viewportWidth <= 990 ? media.mobileSrc : media.desktopSrc;
-
-      if (media.type === 'video') {
-        const sourceElement = element.querySelector('source');
-        if (sourceElement) {
-          sourceElement.src = newSrc;
-          element.load(); // Reload the video with new source
-        }
-      }
-    });
-  };
-
-  const debounce = (func, wait) => {
-    let timeout;
-    return (...args) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-  };
-
-  window.addEventListener('resize', debounce(updateMediaSources, 200));
-  window.addEventListener('DOMContentLoaded', updateMediaSources);
-
   document.querySelectorAll('.control-button').forEach((button) => {
     button.addEventListener('click', () => {
       const videoIndex = button.getAttribute('data-video-index');
-      const video = document.querySelectorAll('.myVideo')[videoIndex - 1];
+      const video = document.querySelectorAll('.video-container')[videoIndex - 1];
       const muteIcon = button.querySelector('.muteIcon');
       const unmuteIcon = button.querySelector('.unmuteIcon');
 

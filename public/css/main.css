@@ -1369,25 +1369,47 @@ a {
   font-size: var(--font-size-regular);
 }
 
+.price-sheet-mobile-video,
+.price-sheet-desktop-video {
+  display: none;
+}
+
+@media (min-width: 990px) {
+  .price-sheet-mobile-video {
+    display: none;
+  }
+  .price-sheet-desktop-video {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .price-sheet-mobile-video {
+    display: block;
+  }
+  .price-sheet-desktop-video {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 520px) {
   .price-grid {
     padding: 0;
   }
 
   .vol-controls-1 {
-  top: 5px;
-  right: 5px;
+  top: 7px;
+  right: 7px;
 }
 
 .vol-controls-2 {
-  top: 5px;
-  right: 5px;
+  top: 7px;
+  right: 7px;
 }
 
 .control-button i {
   font-size: var(--font-size-09);
 }
-
 }
 
 /*--------------------------------------*/
