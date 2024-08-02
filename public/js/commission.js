@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     { selector: '.card-title', direction: 'top' },
     { selector: '.main-head', direction: 'left' },
     { selector: '.art-card', direction: 'bottom' },
-    { selector: '.price-item', direction: 'top' },
   ];
 
   const generateConfig = (direction) => {
@@ -54,7 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .forEach((item) => observer.unobserve(item));
 
     const viewportWidth = window.innerWidth;
-    document.querySelectorAll('.price-item').forEach((item, index) => {
+    const priceItems = document.querySelectorAll('.price-item');
+    priceItems.forEach((item, index) => {
       const direction =
         viewportWidth <= 990 ? 'top' : index % 2 === 0 ? 'left' : 'right';
       const config = generateConfig(direction);
@@ -74,23 +74,35 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   applyAnimations();
+  window.addEventListener('resize', applyAnimations);
 
   document.querySelectorAll('.control-button').forEach((button) => {
     button.addEventListener('click', () => {
-      const videoIndex = button.getAttribute('data-video-index');
-      const video = document.querySelectorAll('.video-container')[videoIndex - 1];
-      const muteIcon = button.querySelector('.muteIcon');
-      const unmuteIcon = button.querySelector('.unmuteIcon');
+      const videoId = button.getAttribute('data-video-id');
+      const muteIcons = button.querySelectorAll('.muteIcon, .unmuteIcon');
+      const videos = document.querySelectorAll(
+        `#video-${videoId}-mobile, #video-${videoId}-desktop`,
+      );
 
-      if (video.muted) {
-        video.muted = false;
-        muteIcon.style.display = 'none';
-        unmuteIcon.style.display = 'inline';
-      } else {
-        video.muted = true;
-        muteIcon.style.display = 'inline';
-        unmuteIcon.style.display = 'none';
-      }
+      videos.forEach((video) => {
+        if (video.muted) {
+          video.muted = false;
+          muteIcons.forEach(
+            (icon) =>
+              (icon.style.display = icon.classList.contains('muteIcon')
+                ? 'none'
+                : 'inline'),
+          );
+        } else {
+          video.muted = true;
+          muteIcons.forEach(
+            (icon) =>
+              (icon.style.display = icon.classList.contains('muteIcon')
+                ? 'inline'
+                : 'none'),
+          );
+        }
+      });
     });
   });
 
