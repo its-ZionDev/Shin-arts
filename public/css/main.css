@@ -1346,7 +1346,7 @@ a {
   max-height: 100%;
   object-fit: contain;
 }
-
+/*
 .vol-controls-1 {
   position: absolute;
   top: 10px;
@@ -1369,7 +1369,6 @@ a {
   font-size: var(--font-size-regular);
 }
 
-.price-sheet-mobile-video,
 .price-sheet-desktop-video {
   display: none;
 }
@@ -1386,18 +1385,18 @@ a {
 @media screen and (max-width: 990px) {
   .price-sheet-mobile-video {
     display: block;
-  }
-  .price-sheet-desktop-video {
+  }*/
+  /*.price-sheet-desktop-video {
     display: none;
   }
-}
+}*/
 
 @media screen and (max-width: 520px) {
   .price-grid {
     padding: 0;
   }
 
-  .vol-controls-1 {
+ /* .vol-controls-1 {
   top: 2px;
   right: 7px;
 }
@@ -1409,7 +1408,7 @@ a {
 
 .control-button i {
   font-size: var(--font-size-09);
-}
+}*/
 }
 
 /*--------------------------------------*/

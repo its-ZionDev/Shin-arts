@@ -37,12 +37,6 @@ client.connect((err) => {
   }
 });
 
-// Delete attachment after sending mail
-const deleteFile = (fileBuffer) => {
-  // In-memory files don't need deletion
-  // Add logic if you need to handle or store the file buffer somewhere
-};
-
 // Setting up Transporter for sending mails
 const transporter = nodemailer.createTransport({
   service: 'gmail',
